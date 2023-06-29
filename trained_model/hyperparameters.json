@@ -1,0 +1,10 @@
+{
+    "num_channels": 10,
+    "kernel_size": 3,
+    "pool_size": 2,
+    "learning_rate": 0.01,
+    "momentum": 0.8,
+    "max_epochs": 100,
+    "accuracy_increment_count": 5,
+    "max_accuracy": 0.9904
+}
