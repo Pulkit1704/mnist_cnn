@@ -9,6 +9,11 @@ import json
 import logging 
 from data_utils import load_mnist 
 
+
+# model_save, plot_save and hyper_parameter_save are helper function to savae: 
+# model state
+# training plots 
+# hypter parameters used for training. 
 def model_save(save_dir, model_state): 
 
     filename = "mnist_trained.pth"
@@ -48,7 +53,7 @@ def hyper_parameter_save(save_dir, hyper_params):
     
     logging.info("model hyperparamters saved") 
 
-
+# its a wrapper function to save all the important information from a single training session
 def session_save(model, save_dir, loss_vec, accuracy_vec, hyper_parameters): 
 
     logging.info("making the save directory") 
