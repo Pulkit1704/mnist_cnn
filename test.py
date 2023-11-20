@@ -27,6 +27,6 @@ for data in testloader:
     classified += sum(map(int, torch.eq(labels, predictions))) 
 
 
-accuracy = classified/ 10_000 
+accuracy = classified/10_000 
 
 print(accuracy) 
