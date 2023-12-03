@@ -1,6 +1,6 @@
 from io import BytesIO
 from flask import Flask, jsonify, request, render_template
-from image_preprocess import transform_image
+from lib.image_preprocess import transform_image
 import base64 
 from PIL import Image 
 
