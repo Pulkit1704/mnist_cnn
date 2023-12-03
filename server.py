@@ -1,4 +1,3 @@
-from io import BytesIO
 from flask import Flask, jsonify, request, render_template
 from lib.image_preprocess import transform_image
 from model.cnn_model import Model 
