@@ -1,0 +1,35 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; 
+
+}
+
+.control-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    font-size: 2em;
+}
+
+.button{
+    width: max-content; 
+    height: max-content;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: rgba(14, 167, 214, 0.466);
+}
+
+h1{
+    text-align: center;
+    font-size: 5rem;
+    color: rgb(14, 167, 214);
+} 
+
+#input{
+    border: solid black 1px; 
+    
+}
