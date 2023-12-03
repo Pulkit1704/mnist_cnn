@@ -1,10 +1,8 @@
 from io import BytesIO
 from flask import Flask, jsonify, request, render_template
 from lib.image_preprocess import transform_image
-import base64 
-from PIL import Image 
-
-import matplotlib.pyplot as plt 
+from model.cnn_model import Model 
+import torch 
 
 app = Flask(__name__) 
 
@@ -18,16 +16,13 @@ def make_prediction():
     if request.method == 'POST': 
         
         file = request.data
-        data = file.split(b',')[-1]
-        image_data = base64.decodebytes(data) 
+        processed_image = transform_image(file)
 
-        pil_image = Image.open(BytesIO(image_data))
+        model = Model(10, 3, 2) 
+        model.load_state_dict(torch.load("model/trained_model/mnist_trained.pth"))
 
-        # image_tensor = torch.from_numpy(np.array(image))
+        prediction = model.predict(torch.reshape(processed_image[3], [1, 1, 28, 28]))
 
-        # print(image_tensor.shape) 
-        
-        processed_image = transform_image(pil_image) 
-        plt.imshow(processed_image.numpy()[3])
-        plt.savefig("./sample.png") 
-        return jsonify({'class': processed_image.shape})
+        _, prediction = torch.max(prediction, dim=1)
+
+        return jsonify({'class': str(prediction)})
