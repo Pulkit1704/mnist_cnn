@@ -20,8 +20,10 @@ def make_prediction():
         model = Model(10, 3, 2) 
         model.load_state_dict(torch.load("model/trained_model/mnist_trained.pth"))
 
-        prediction = model.predict(torch.reshape(processed_image[3], [1, 1, 28, 28]))
+        predictions_tensor = model.predict(torch.reshape(processed_image[3], [1, 1, 28, 28]))
 
-        _, prediction = torch.max(prediction, dim=1)
+        predictions_dict = {} 
+        for i in range(0, predictions_tensor.shape[-1]): 
+            predictions_dict[i] = predictions_tensor[0, i].item()
 
-        return jsonify({'class': str(prediction)})
+        return jsonify(predictions_dict) 
