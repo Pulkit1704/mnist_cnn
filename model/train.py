@@ -10,7 +10,7 @@ import logging
 from data_utils import load_mnist 
 
 
-# model_save, plot_save and hyper_parameter_save are helper function to savae: 
+# model_save, plot_save and hyper_parameter_save are helper function to save: 
 # model state
 # training plots 
 # hypter parameters used for training. 
@@ -53,7 +53,7 @@ def hyper_parameter_save(save_dir, hyper_params):
     
     logging.info("model hyperparamters saved") 
 
-# its a wrapper function to save all the important information from a single training session
+# wrapper function to save all the important information from a single training session
 def session_save(model, save_dir, loss_vec, accuracy_vec, hyper_parameters): 
 
     logging.info("making the save directory") 
@@ -78,9 +78,7 @@ if __name__ == '__main__':
 
     transformation = torchvision.transforms.ToTensor() 
 
-    train_loader, test_loader = load_mnist(root = "./data",
-                                          batch_size=64,
-                                          transformation= transformation) 
+    train_loader, test_loader = load_mnist(root = "./model/data", batch_size=64, transformation= transformation) 
 
     hyper_parameters = {
         "num_channels": 10,
@@ -148,7 +146,7 @@ if __name__ == '__main__':
     
     logging.info("training done... saving the model and plots") 
 
-    save_dir = "./trained_model"
+    save_dir = "./model/trained_model"
 
     session_save(max_accuracy_state, save_dir, per_epoch_loss, per_epoch_accuracy, hyper_parameters) 
 
