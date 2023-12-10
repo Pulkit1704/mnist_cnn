@@ -5,6 +5,7 @@ var ctx = canvas.getContext("2d");
 var mousedown = false; 
 
 const submitButton = document.querySelector(".submit")
+const clearButton = document.querySelector(".clear") 
 
 // Set the drawing color to black
 ctx.strokestyle = "black"; 
@@ -27,7 +28,7 @@ function draw_stroke(e){
 
 }
 
-function submit(){
+function submitQuery(){
 
   const image = canvas.toDataURL();
   // use this dataurl to send the file to the server, 
@@ -47,8 +48,14 @@ function submit(){
 
 }
 
+function clearCanvas(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height); 
+}
+
 canvas.addEventListener("mousedown", ()=>{mousedown = true}); 
 canvas.addEventListener("mousemove", draw_stroke); 
 canvas.addEventListener("mouseup", ()=>{ mousedown = false; ctx.beginPath()}); 
 
-submitButton.addEventListener("click", submit); 
+submitButton.addEventListener("click", submitQuery); 
+
+clearButton.addEventListener("click", clearCanvas); 
