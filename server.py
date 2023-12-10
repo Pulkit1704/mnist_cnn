@@ -22,8 +22,6 @@ def make_prediction():
 
         predictions_tensor = model.predict(torch.reshape(processed_image[3], [1, 1, 28, 28]))
 
-        predictions_dict = {} 
-        for i in range(0, predictions_tensor.shape[-1]): 
-            predictions_dict[i] = predictions_tensor[0, i].item()
-
-        return jsonify(predictions_dict) 
+        _, predicted_class = torch.max(predictions_tensor, dim=1) 
+    
+    return jsonify(predicted_class.item()) 

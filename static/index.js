@@ -31,7 +31,6 @@ function submit(){
 
   const image = canvas.toDataURL();
   // use this dataurl to send the file to the server, 
-  // preprocess the file before sending: center crop and scale the image. 
   
   let url = "/predict"
 
@@ -42,7 +41,8 @@ function submit(){
   http.onload = function(){
     let response_obj = http.response; 
 
-    console.log(response_obj); 
+    let predictionElement = document.querySelector("#class-pred"); 
+    predictionElement.textContent = `predicted class from the model: ${response_obj}`; 
   }
 
 }
