@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template
-from lib.image_preprocess import transform_image
+from lib.utils import transform_image, make_predictions
 from model.cnn_model import Model 
 import torch 
 
@@ -17,11 +17,6 @@ def make_prediction():
         file = request.data
         processed_image = transform_image(file)
 
-        model = Model(10, 3, 2) 
-        model.load_state_dict(torch.load("model/trained_model/mnist_trained.pth"))
-
-        predictions_tensor = model.predict(torch.reshape(processed_image[3], [1, 1, 28, 28]))
-
-        _, predicted_class = torch.max(predictions_tensor, dim=1) 
+        predicted_class = make_predictions(processed_image)
     
     return jsonify(predicted_class.item()) 

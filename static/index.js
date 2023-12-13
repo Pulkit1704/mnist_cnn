@@ -7,7 +7,6 @@ var mousedown = false;
 const submitButton = document.querySelector(".submit")
 const clearButton = document.querySelector(".clear") 
 
-// Set the drawing color to black
 ctx.strokestyle = "black"; 
 ctx.lineWidth = 6; 
 ctx.lineJoin= "round"; 
@@ -31,7 +30,6 @@ function draw_stroke(e){
 function submitQuery(){
 
   const image = canvas.toDataURL();
-  // use this dataurl to send the file to the server, 
   
   let url = "/predict"
 
