@@ -18,3 +18,11 @@ def make_prediction():
         predicted_class = make_predictions(processed_image)
     
     return jsonify(predicted_class.item()) 
+
+
+if __name__ == "__main__": 
+
+    host = "127.0.0.1"
+    port_number = 8080 
+
+    app.run(host, port_number)
