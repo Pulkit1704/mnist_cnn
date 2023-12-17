@@ -1,22 +1,34 @@
 # Convolutional Neural Network trained on the MNIST digit classification dataset. 
 
-python version: 3.11.3
-
 ## Requried packages: 
 * pytorch 
 * matplotlib 
 * torchvision 
+* flask
 
-The environment plan is in environment.yml files for conda environment creation. 
+The environment plan is located in the environment.yml file. 
 
 ## Project Description 
-This is a pytorch implementation of convolutional neural network on the MNIST digit classification database. The model architecture is summarised in the below image. 
+This is a pytorch implementation of convolutional neural network on the MNIST digit classification dataset. 
 
-You can train and test the model using the train.py and test.py respectively by running them from the root of the project folder. The dataset is stored in the data directory.
+The model is stored in the model directory and the server code is storec in the server.py and lib directory. The html templates for the front end are stored in the templates directory and the css and javascript files are stored in the static directory. 
 
-The model is a simplified convolutional network with convolution layers implementing same convolution on input images. There are 2 convolution layers with a user definable number of convolution filters in the form of num_channels. The convoluted input is flattened and fed into a feed forward neural network with progressively decreasing number of neurons in each layer until it reaches to an output layer with 10 neurons. 
+Follow the below instructions to initialize the flask server. 
+ 
 
 ### Instructions to run the program: 
-* Fork and clone the repository. 
-* Build the conda environment using the environment.yml file. 
-* run the test.py file from the created environment. 
+* Fork and clone the repository. Then change into the cloned repository 
+```bash
+    cd mnist_cnn
+```
+* Build the conda environment using the environment.yml file.
+
+```bash 
+    conda env create -f environment.yml
+``` 
+* Run the server.py file using the below command 
+
+```bash 
+    python server.py 
+```
+* Visit localhost:8080 on your local machine to interact with the server. 
