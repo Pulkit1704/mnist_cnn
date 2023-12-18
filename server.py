@@ -13,9 +13,8 @@ def make_prediction():
     if request.method == 'POST': 
         
         file = request.data
-        processed_image = transform_image(file)
 
-        predicted_class = make_predictions(processed_image)
+        predicted_class = make_predictions(file)
     
     return jsonify(predicted_class.item()) 
 
