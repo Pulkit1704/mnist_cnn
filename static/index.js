@@ -63,6 +63,8 @@
   
   function clearCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    let predictionElement = document.querySelector("#class-pred"); 
+    predictionElement.textContent = ""; 
   }
   
   // add the event listeners 
