@@ -46,10 +46,10 @@ def make_predictions(image_file):
 
     model = build_model() 
     image_tensor = transform_image(image_file) 
-    processed_image = torch.reshape(image_tensor[3], [1, 1, 28, 28])
+    image_tensor = torch.reshape(image_tensor[3], [1, 1, 28, 28])
 
-    predictions_tensor = model.predict(processed_image) 
+    predictions_tensor = model.predict(image_tensor) 
 
-    _, prediction_class = torch.max(predictions_tensor, dim=1) 
+    _, predicted_class = torch.max(predictions_tensor, dim=1) 
 
-    return prediction_class 
+    return predicted_class 

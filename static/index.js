@@ -1,5 +1,4 @@
 (function(){
-  //declare the global variables 
   const http = new XMLHttpRequest(); 
   var canvas = document.querySelector("#input");
   var ctx = canvas.getContext("2d");
@@ -8,7 +7,7 @@
   const submitButton = document.querySelector(".submit")
   const clearButton = document.querySelector(".clear") 
   
-  // get the canvas context 
+  // set the canvas context 
   ctx.strokestyle = "black"; 
   ctx.lineWidth = 6; 
   ctx.lineJoin= "round"; 
