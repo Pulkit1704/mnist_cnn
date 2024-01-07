@@ -5,6 +5,9 @@
 * matplotlib 
 * torchvision 
 * flask
+* pillow 
+* python 
+* numpy 
 
 The environment plan is located in the environment.yml file. 
 
