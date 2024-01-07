@@ -4,8 +4,6 @@ import torchvision.transforms as transforms
 from model.cnn_model import Model
 import torch 
 import json 
-
-
 from PIL import Image 
 
 
