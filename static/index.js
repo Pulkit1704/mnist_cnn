@@ -30,7 +30,7 @@
   }
   
   function submitQuery(){
-  
+
     const image = canvas.toDataURL();
     
     let url = "/predict"
@@ -40,21 +40,16 @@
     http.send(image) 
   
     http.onload = function(){
-      // check the status of the http request and show the error message accordingly.
 
       let predictionElement = document.querySelector("#class-pred"); 
       
-      if (http.status >= 200){
+      if (http.status === 200){
         let response_obj = http.response; 
   
         
         predictionElement.textContent = `predicted class from the model: ${response_obj}`; 
-        console.log(http.status);
-      }
-
-      if (http.status >= 500){
-        console.log(http.status); 
-        predictionElement.textContent = "internal server error"; 
+      }else{
+        predictionElement.textContent = "An error occured"; 
       }
        
     }
