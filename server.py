@@ -4,11 +4,11 @@ from lib.utils import make_predictions
 app = Flask(__name__) 
 
 @app.route('/') 
-def hello(): 
+def root(): 
     return render_template("index.html")
 
 @app.route('/predict', methods=['POST']) 
-def make_prediction(): 
+def predictions_endpoint(): 
    
     if request.method == 'POST': 
         
