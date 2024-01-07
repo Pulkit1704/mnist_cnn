@@ -36,6 +36,12 @@ h1{
     color: rgb(14, 167, 214);
 } 
 
+h2{
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(0, 0, 0, 0.5)
+}
+
 #input{
     border: solid black 1px; 
     
