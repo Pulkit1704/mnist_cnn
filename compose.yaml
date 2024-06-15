@@ -1,5 +1,7 @@
 services:
   server:
+    image: "cnn_server"
+    container_name: "cnn_server_container"
     build: 
       context: .
     ports:
