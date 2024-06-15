@@ -35,3 +35,8 @@ Follow the below instructions to initialize the flask server.
     python server.py 
 ```
 * Visit localhost:8080 on your local machine to interact with the server. 
+
+## Docker Image
+You can find the docker image from the URL below: 
+
+https://hub.docker.com/repository/docker/pulkit3379/mnist_cnn 
