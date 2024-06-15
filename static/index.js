@@ -18,8 +18,8 @@
       return 
     }
   
-    var x = e.clientX - canvas.offsetLeft; 
-    var y = e.clientY - canvas.offsetTop; 
+    var x = e.pageX - canvas.offsetLeft; 
+    var y = e.pageY - canvas.offsetTop; 
   
     ctx.lineTo(x, y); 
     ctx.stroke(); 
