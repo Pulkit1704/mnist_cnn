@@ -1,6 +1,6 @@
 from io import BytesIO 
 import base64 
-import torchvision.transforms as transforms 
+from torchvision.transforms import v2 
 from model.cnn_model import Model
 import torch 
 import json 
@@ -13,10 +13,10 @@ def transform_image(image):
         Takes a Base 64 image from the client and transforms the image into a tensor. 
     '''
 
-    transformation = transforms.Compose([
-        transforms.Resize(28), 
-        transforms.CenterCrop([28, 28]),
-        transforms.ToTensor()
+    transformation = v2.Compose([
+        v2.ToImage(),
+        v2.Resize(28),
+        v2.ToDtype(torch.float32, scale = True) 
     ])
 
      
@@ -40,7 +40,7 @@ def build_model():
                 hyperparameters["pool_size"]
     )
 
-    model.load_state_dict(torch.load("model/trained_model/mnist_trained.pth"))
+    model.load_state_dict(torch.load("model/trained_model/mnist_trained.pth", weights_only=True))
 
     return model
 
